@@ -10,15 +10,15 @@
   <body
     class="text-gray-100 text-2xl"
     style="background-color: rgb(77, 4, 42)"
-  ><div class="flex justify-center mt-14 mb-24">
-    <h2 class="text-7xl font-extrabold dark:text-white">PokeRealm</h2>
+  ><div class="flex justify-center mt-14 mb-8 sm:mb-16 md:mb-24">
+    <h2 class="sm:text-7xl text-5xl font-extrabold dark:text-white">PokeRealm</h2>
   </div>
   <!-- Grid Main -->
     <div class="grid md:grid-cols-10">
       <div class="flex flex-col col-span-5">
         
 
-        <div class="-col md:flex justify-center">
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 px-4">
           <form class="flex items-center mr-2">
             <label for="simple-search" class="sr-only">Search</label>
             <div class="relative w-full">
@@ -53,77 +53,94 @@
             </button>
           </div>
         </div>
-        <div class="flex justify-center gap-12 my-10">
-          <h3 class="text-3xl font-bold dark:text-white self-end">#384</h3>
-          <h1 class="text-5xl font-extrabold dark:text-white self-end">
-            chesnaught
-          </h1>
-          <img
-            class="max-w-12 self-end"
-            src="./assets/Pink_heartt.svg"
-            alt="heart Favorites"
-          />
-        </div>
-        <div class="flex justify-center min-h-96">
-          <img class="min-h-96" src="./assets/652 (2).png" alt="" />
-        </div>
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+          <div class="flex justify-center gap-4 sm:gap-12 my-10">
+            <h3 class="text-3xl font-bold dark:text-white self-end">#384</h3>
+            <h1 class="text-5xl font-extrabold dark:text-white self-end">
+              chesnaught
+            </h1>
+            </div>
+            <div>
+              <img class="max-w-12 self-end" src="./assets/heart.png" alt="heart Favorites"/>
+            </div>
+            
+          
+          </div>
+          <div class="flex justify-center min-h-96">
+            <img class="min-h-96" src="./assets/652 (2).png" alt="" />
+          </div>
+        
+        
       </div>
         <!-- ------------------------------------------------------------------------------------------------------------------------ -->
         <!-- ------------------------------------------------------------------------------------------------------------------------ -->
-      <div class="col-span-4 p-8">
+      <div class="col-span-4 ml-10">
         <div>
           <h1
-            class="flex justify-start mb-5 mt-14 text-4xl font-extrabold dark:text-white"
+            class="flex justify-center sm:justify-start mb-5 text-4xl font-extrabold dark:text-white"
           >
             Info
           </h1>
         </div>
 
-        <div class="grid grid-cols-5 gap-6">
-          <div class="col-span-1 ">
-            <div>
-              <h5 class="text-2xl font-bold dark:text-white mb-4">Type:</h5>
-            </div>
-            <div class=" mt-9">
-              <h5 class="text-2xl font-bold dark:text-white mb-4">Location:</h5>
-            </div>
-            <div class=" mt-1.5">
-              <h5 class="text-2xl font-bold dark:text-white">Abilities:</h5>
-            </div>
-          </div>
-
-          <div class="col-span-4">
-            <div class="flex gap-4 class=" >
-              <div class="">
-                <h5 class="text-2xl font-bold dark:text-white mb-4">grass</h5>
-              </div>
+        <div class=" gap-6">
+          <div class="">
+            <div class="flex flex-col md:flex-row justify-start gap-2 md:gap-10  mb-8">
               <div>
-                <h5 class="text-2xl font-bold dark:text-white mb-4">Fighting</h5>
+                <h5 class="text-2xl font-bold dark:text-white">Type:</h5>
+              </div>
+              <div class="flex gap-4 class=">
+                <div class="">
+                  <h5 class="text-2xl font-bold dark:text-white">grass</h5>
+                </div>
+                <div>
+                  <h5 class="text-2xl font-bold dark:text-white">Fighting</h5>
+                </div>
               </div>
             </div>
-            <div class=" mt-5">
-              <h5 class="text-2xl font-bold dark:text-white mb-4">
-                Exeggutor Island
-              </h5>
+            <div class="flex flex-col md:flex-row justify-start gap-2 md:gap-10  mb-8">
+              <div>
+                <h5 class="text-2xl font-bold dark:text-white">Location:</h5>
+              </div>
+              <div class="flex gap-4 class=">
+                <div class="">
+                  <h5 class="text-2xl font-bold dark:text-white">Exeggutor Island</h5>
+                </div>
+                
+              </div>
             </div>
-            <div class=" mt-5">
-              <h5 class="text-2xl font-bold dark:text-white mb-4">
-                Overgrow, Bulletproof
-              </h5>
+            <div class="flex flex-col md:flex-row justify-start gap-2 md:gap-10  mb-8">
+              <div>
+                <h5 class="text-2xl font-bold dark:text-white">Abilities:</h5>
+              </div>
+              <div class="flex gap-4 class=">
+                <div class="">
+                  <h5 class="text-2xl font-bold dark:text-white">Overgrow, Bulletproof</h5>
+                </div>
+            
+              </div>
             </div>
+            <div class="flex flex-col md:flex-row justify-start gap-2 md:gap-10  mb-8">
+              <div>
+                <h5 class="text-2xl font-bold dark:text-white">Moves:</h5>
+              </div>
+              <div class="flex gap-4 class=">
+                <div class="">
+                  <h5 class="text-2xl font-bold dark:text-white">Thunder Punch, Swords Dance, Cut, Vine Whip, Takkle, Body Slam, Take down, Double Edge, Thunder Punch, Swords Dance,
+                  Cut, Vine Whip, Takkle, Body Slam, Thunder Punch, Swords Dance, Cut, Vine Whip, Takkle, Body Slam</h5>
+                </div>
+            
+              </div>
+            </div>
+            
+            
+            
+
+            
+
           
-          </div>
         </div>
-        <div class="grid grid-cols-5 gap-4 mt-5">
-          <div class="col-span-1">
-            <h5 class="text-2xl font-bold dark:text-white mb-4">Moves:</h5>
-          </div>
-          <div class="col-span-4 ">
-            <h5 class="text-2xl font-bold dark:text-white mb-4">
-              Thunder Punch, Swords Dance, Cut, Vine Whip, Takkle, Body Slam, Take down, Double Edge, Thunder Punch, Swords Dance, Cut, Vine Whip, Takkle, Body Slam, Thunder Punch, Swords Dance, Cut, Vine Whip, Takkle, Body Slam,....Read More!
-            </h5>
-          </div>
-        </div>
+        
 <div class="col-span-5  mt-10">
   <div class="col-span-1">
     <h5 class="text-2xl font-bold dark:text-white mb-4">Evolutions:</h5>
