@@ -180,7 +180,15 @@ function addItemToList(itemName) {
     // Add an event listener to the "X" button for item removal
     li.querySelector('.remove-item').addEventListener('click', function () {
         li.remove(); // Remove the list item
+        // Remove the item from local storage
+        removeItemFromLocalStorage(itemName);
     });
+}
+function removeItemFromLocalStorage(itemName) {
+    let favorites = getlocalStorage(); // Fetch the current list of favorites
+    const updatedFavorites = favorites.filter(name => name !== itemName); // Remove the specified item
+    localStorage.setItem("Favorites", JSON.stringify(updatedFavorites)); // Update local storage
+    updateHeartIcon()
 }
 
 function refreshFavoritesList() {
