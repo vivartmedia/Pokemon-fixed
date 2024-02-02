@@ -3,7 +3,7 @@
 let searchFld = document.getElementById("searchFld");
 let searchBtn = document.getElementById("searchBtn");
 let randomBtn = document.getElementById("randomBtn");
-let favsBtn = document.getElementById("favoritesButton");
+let favsBtn = document.getElementById("favsBtn");
 let numberTxt = document.getElementById("numberTxt");
 let nameTxt = document.getElementById("nameTxt");
 
@@ -20,7 +20,15 @@ let favsTxtList = document.getElementById("favsTxtList");
 
 
 
-let pokemon = "652";
+// let pokemon = 652;
+// document.addEventListener('DOMContentLoaded', () => {
+//     digimonApi(pokemon);
+// });
+document.addEventListener('DOMContentLoaded', () => {
+    digimonApi('652').then(() => {
+        updateHeartIcon(); // Ensure the heart icon is correct for the initial Pokémon
+    });
+});
 //let digimon = [];
 // let types; 
 const digimonApi = async (pokemon) => {
@@ -39,6 +47,8 @@ const digimonApi = async (pokemon) => {
         locationData = [{ location_area: { name: 'N/A' } }];
     }
     locationTxt.textContent = CapFirst(locationData[0].location_area.name)
+
+    
 
     const mainImgSrc = [
         `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png`,
@@ -62,20 +72,33 @@ const digimonApi = async (pokemon) => {
 
 searchFld.addEventListener('keydown', async (event) => {
     if (event.key === "Enter") {
-        pokemon = await digimonApi(event.target.value.toLowerCase());
+        let searchpokemon = await digimonApi(event.target.value.toLowerCase());
+        updatePokemonUI(searchpokemon)
         
-        nameTxt.textContent = CapFirst(pokemon.name);
-        numberTxt.textContent = "#" + pokemon.id;
+        
+        searchFld.value = "";
+         }
+    }
+)
 
-        let types = pokemon.types.map(data => CapFirst(data.type.name));
-        typeTxt.textContent = types.join(', ');
+function updatePokemonUI(pokemonData) {
+    // Assuming pokemonData is the object with all necessary Pokémon details
+    nameTxt.textContent = CapFirst(pokemonData.name);
+    numberTxt.textContent = "#" + pokemonData.id;
 
-        let moves = pokemon.moves.map(data => CapFirst(data.move.name))
-        movesTxt.textContent = moves.join(', ')
+    let types = pokemonData.types.map(data => CapFirst(data.type.name));
+    typeTxt.textContent = types.join(', ');
 
-        let abilities = pokemon.abilities.map(data => CapFirst(data.ability.name))
-        abilitiesTxt.textContent = abilities.join(', ')
-        searchFld.value = "";}})
+    let moves = pokemonData.moves.map(data => CapFirst(data.move.name));
+    movesTxt.textContent = moves.join(', ');
+
+    let abilities = pokemonData.abilities.map(data => CapFirst(data.ability.name));
+    abilitiesTxt.textContent = abilities.join(', ');
+
+    // Update the heart icon based on the new data
+    updateHeartIcon();
+}
+
 
 function CapFirst(word, removeDash = '-', putSpace = ' ') {
     let wordsArray = word.split(removeDash);
@@ -91,25 +114,43 @@ if (localStorage.getItem("Favorites")) {
         
     }
 
-heartIco.addEventListener('click', () => {
-    // saveToLocalStorage(pokemon.name);
-    let favorites = getlocalStorage();
-    if (!favorites.includes(pokemon.name)) {
-        favorites.push(pokemon.name);
-        addItemToList(pokemon.name)
-        heartIco.innerHTML = "&#9829";
-    } else if (favorites.includes(pokemon.name)) {
-        favorites.splice(favorites.indexOf(pokemon), 1);
-        localStorage.setItem("Favorites", JSON.stringify(favorites))
-        heartIco.innerHTML = "&#9825";
-    }
-    // else {
-    //     heartIco.innerHTML = "&#9825";
-    // }
-    
 
-    localStorage.setItem("Favorites", JSON.stringify(favorites));
+favsBtn.addEventListener('click', () => {
+    refreshFavoritesList()
 })
+heartIco.addEventListener('click', () => {
+    // Retrieve the current Pokémon's name displayed in the UI
+    let currentPokemonName = nameTxt.textContent;
+
+    // Fetch the current list of favorites from local storage
+    let favorites = getlocalStorage();
+
+    // Check if the current Pokémon's name is in the favorites list
+    if (!favorites.includes(currentPokemonName)) {
+        // If not, add it to the favorites list
+        favorites.push(currentPokemonName);
+        addItemToList(currentPokemonName); // Update the UI to reflect the addition
+        heartIco.innerHTML = "&#9829;"; // Change the heart icon to indicate it's a favorite
+    } else {
+        // If it is already a favorite, remove it
+        favorites = favorites.filter(name => name !== currentPokemonName);
+        heartIco.innerHTML = "&#9825;"; // Change the heart icon to indicate it's not a favorite anymore
+    }
+
+    // Update local storage with the new favorites list
+    localStorage.setItem("Favorites", JSON.stringify(favorites));
+    refreshFavoritesList();
+});
+
+function updateHeartIcon() {
+    let currentPokemonName = nameTxt.textContent;
+    let favorites = getlocalStorage();
+    if (favorites.includes(currentPokemonName)) {
+        heartIco.innerHTML = "&#9829;";
+    } else {
+        heartIco.innerHTML = "&#9825;"; 
+    }
+}
 
 const getlocalStorage = () => {
     let localStorageData = localStorage.getItem("Favorites");
@@ -119,6 +160,7 @@ const getlocalStorage = () => {
     }
     return JSON.parse(localStorageData);
 }
+
 
 function addItemToList(itemName) {
     const list = document.getElementById('favsTxtList');
@@ -141,15 +183,29 @@ function addItemToList(itemName) {
     });
 }
 
+function refreshFavoritesList() {
+    let favorites = getlocalStorage();
+    favsTxtList.innerHTML = ''; // Clear the existing list
+
+    // Repopulate the list with items from local storage
+    favorites.forEach(favoriteName => {
+        addItemToList(favoriteName);
+    });
+}
 
 
-const getRandomPokemonName = () => {
-    const randomId = Math.random() * 600 + 1;
-    return PokemonApi(randomId);
+
+
+const getRandomPokemonName = async () => {
+    const randomId = Math.floor(Math.random() * 600) + 1; // Ensure integer value
+    const pokemonData = await digimonApi(randomId.toString()); // Assuming API needs ID as string
+    updatePokemonUI(pokemonData)
+    return pokemonData.name; // Assuming you want to return the name for some reason
 };
 
+
 randomBtn.addEventListener('click', async () => {
-    pokemon = await getRandomPokemonName();
-    Pokemon = await PokemonApi(pokemon);
-    PokemonApi(pokemon);
+    // Assuming getRandomPokemonName fetches and returns Pokémon data
+    let randomPokemonData = await getRandomPokemonName(); // Make sure this function returns the full Pokémon data
+    updatePokemonUI(randomPokemonData);
 });
