@@ -19,31 +19,34 @@
         
 
         <div class="flex flex-col sm:flex-row justify-center items-center gap-4 px-4">
-          <form class="flex items-center mr-2">
-            <label for="searchFld" class="sr-only">Search</label>
-            <div class="relative w-full">
+          <!-- <form class="flex items-center mr-2"> -->
+            <!-- <label for="searchFld" class="sr-only">Search</label> -->
+            <div class="flex items-center mr-2">
               <input
                 type="text"
                 id="searchFld"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Search branch name..."
+                placeholder="Type name and press Enter"
                 required
               />
             </div>
-          </form>
+          <!-- </form> -->
+            <!-- <div class="flex justify-center mt-5 bg-red-800">
+              <input id="searchFld" type="text">
+            </div> -->
 
           <div class="inline-flex rounded-md shadow-sm" role="group">
-            <button 
+            <!-- <button 
               id="searchBtn"
               type="button"
               class="px-4 py-2 text-2xl font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
             >
               Search
-            </button>
+            </button> -->
             <button
             id="randomBtn"
               type="button"
-              class="px-4 py-2 text-2xl font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+              class="px-4 py-2 text-2xl font-medium text-gray-900 bg-white border-t border-b border-gray-200 rounded-s-lg  hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
             >
               Random
             </button>
@@ -58,23 +61,29 @@
         </div>
         <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
           <div class="flex justify-center gap-4 sm:gap-12 my-10">
-            <h3 id="numberTxt" class="text-3xl font-bold dark:text-white self-end">#384</h3>
+            <h3 id="numberTxt" class="text-3xl font-bold dark:text-white self-end">#652</h3>
             <h1 id="nameTxt" class="text-5xl font-extrabold dark:text-white self-end">
-              chesnaught
+              Chesnaught
             </h1>
             </div>
             <div>
-              <img id="heartIco" class="max-w-12 self-end" src="./assets/heart.png" alt="heart Favorites"/>
+              <h1 id="heartIco" class="text-7xl text-red-600">&#9825;</h1>
+             <!--   
+              <h1 class="text-7xl text-red-600">&#9829;</h1> -->
             </div>
             
           
           </div>
           <div class="flex justify-center min-h-96">
-            <img id="pokeImgMain" class="min-h-96" src="./assets/652 (2).png" alt="" />
+            <img id="pokeImgMain" class="min-h-96" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/652.png" alt="" />
           </div>
-        
-        
+          
+          
+
+                <span id="favoriteIcon">&#9825;</span> <!-- Empty heart -->
+        <h3>try: Pikachu, Charizard, Bulbasaur, Squirtle, Eevee, Jigglypuff, Mewtwo, Gengar, Lucario, Gyarados, Snorlax, Psyduck, Mimikyu, Greninja, Rayquaza</h3>
       </div>
+
         <!-- ------------------------------------------------------------------------------------------------------------------------ -->
         <!-- ------------------------------------------------------------------------------------------------------------------------ -->
       <div class="col-span-4 ml-10">
@@ -86,81 +95,74 @@
           </h1>
         </div>
 
-        <div class=" gap-6">
+        <div class=" ">
           <div class="">
             <div class="flex flex-col md:flex-row justify-start gap-2 md:gap-10  mb-8">
-              <div>
+              <div class="md:w-28">
                 <h5  class="text-2xl font-bold dark:text-white">Type:</h5>
               </div>
               <div class="flex gap-4 class=">
                 <div class="">
-                  <h5 id="type1Text" class="text-2xl font-bold dark:text-white">grass</h5>
-                </div>
-                <div>
-                  <h5 id="type2Text" class="text-2xl font-bold dark:text-white">Fighting</h5>
+                  <h5 id="typeTxt" class="text-2xl font-bold dark:text-white">Grass, Fighting</h5>
                 </div>
               </div>
             </div>
             <div class="flex flex-col md:flex-row justify-start gap-2 md:gap-10  mb-8">
-              <div>
+              <div class="md:w-28">
                 <h5  class="text-2xl font-bold dark:text-white">Location:</h5>
               </div>
               <div class="flex gap-4 class=">
                 <div class="">
-                  <h5 id="locationTxt" class="text-2xl font-bold dark:text-white">Exeggutor Island</h5>
+                  <h5 id="locationTxt" class="text-2xl font-bold dark:text-white">Exeggutor Island Area</h5>
                 </div>
-                
               </div>
             </div>
             <div class="flex flex-col md:flex-row justify-start gap-2 md:gap-10  mb-8">
-              <div>
+              <div class="md:w-28">
                 <h5 class="text-2xl font-bold dark:text-white">Abilities:</h5>
               </div>
               <div class="flex gap-4 class=">
-                <div class="">
+               
                   <h5 id="abilitiesTxt" class="text-2xl font-bold dark:text-white">Overgrow, Bulletproof</h5>
                 </div>
-            
-              </div>
+              
             </div>
             <div class="flex flex-col md:flex-row justify-start gap-2 md:gap-10  mb-8">
-              <div>
+              <div class="md:w-28">
                 <h5 class="text-2xl font-bold dark:text-white">Moves:</h5>
               </div>
-              <div class="flex gap-4 class=">
-                <div class="">
-                  <h5 id="movesTxt" class="text-2xl font-bold dark:text-white">Thunder Punch, Swords Dance, Cut, Vine Whip, Takkle, Body Slam, Take down, Double Edge, Thunder Punch, Swords Dance,
-                  Cut, Vine Whip, Takkle, Body Slam, Thunder Punch, Swords Dance, Cut, Vine Whip, Takkle, Body Slam</h5>
+            
+                <div class="flex-1 flex gap-4 overflow-scroll h-40">
+                  <h5 id="movesTxt" class=" text-2xl font-bold dark:text-white">Thunder Punch, Swords Dance, Cut, Vine Whip, Tackle, Body Slam, Take Down, Double Edge, Pin Missile, Bite, Growl, Roar,
+                  Hyper Beam, Low Kick, Strength, Leech Seed, Solar Beam, Earthquake, Dig, Toxic, Double Team, Reflect, Swift, Flash,
+                  Rest, Rock Slide, Super Fang, Substitute, Snore, Curse, Reversal, Protect, Scary Face, Belly Drum, Sludge Bomb, Mud
+                  Slap, Spikes, Giga Drain, Endure, Rollout, Swagger, Attract, Sleep Talk, Return, Frustration, Pain Split, Iron Tail,
+                  Metal Claw, Synthesis, Hidden Power, Rain Dance, Sunny Day, Crunch, Rock Smash, Facade, Focus Punch, Nature Power,
+                  Taunt, Helping Hand, Superpower, Brick Break, Knock Off, Endeavor, Secret Power, Needle Arm, Rock Tomb, Bullet Seed,
+                  Aerial Ace, Iron Defense, Block, Dragon Claw, Frenzy Plant, Bulk Up, Mud Shot, Magical Leaf, Hammer Arm, Gyro Ball,
+                  Feint, Close Combat, Payback, Fling, Worry Seed, Poison Jab, Seed Bomb, Drain Punch, Focus Blast, Energy Ball, Giga
+                  Impact, Shadow Claw, Zen Headbutt, Leaf Storm, Iron Head, Stone Edge, Grass Knot, Wood Hammer, Hone Claws, Wide Guard,
+                  Smack Down, Low Sweep, Round, Quick Guard, Retaliate, Grass Pledge, Bulldoze, Work Up, Dual Chop, Grassy Terrain,
+                  Confide, Spiky Shield, Power Up Punch, High Horsepower, Stomping Tantrum, Body Press, Grassy Glide, Coaching, Tera
+                  Blast, Trailblazee</h5>
                 </div>
-            
-              </div>
+              
             </div>
-            
-            
-            
-
-            
-
-          
         </div>
         
-<div class="col-span-5  mt-10">
-  <div class="col-span-1">
+<div class="flex flex-col mt-10">
     <h5 class="text-2xl font-bold dark:text-white mb-4">Evolutions:</h5>
   </div>
-  <div class="flex gap-10 justify-start">
-    <div>
-      <img id="evol1Img" class=" " src="./assets/650.png" alt="">
+  <div class="flex justify-center items-center">
+    <div class="">
+      <img id="evol1Img" class=" h-52 object-cover "  src="./assets/650.png" alt="Evolv1">
     </div>
-    <div>
-      <img id="evol2Img" src="./assets/651.png" alt="">
+    <div class="">
+      <img id="evol2Img" class=" h-52 object-cover" src="./assets/651.png" alt="Evole2">
     </div>
-    <div>
-      <img id="evol3Img" class="" src="./assets/652.png" alt="">
+    <div class="">
+      <img id="evol3Img" class=" h-52 object-cover"  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/652.gif" alt="Evolv3">
     </div>
-
-  </div>
-  
 </div>
         
       </div>
@@ -184,18 +186,18 @@
      <span class="sr-only">Close menu</span>
   </button>
  <div class="py-4 overflow-y-auto">
-     <ul class="space-y-2 font-medium">
-        <li id="favsTxtList">
+     <ul id="favsTxtList" class="space-y-2 font-medium">
+        <li>
            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-              <span class="ms-3">Chesnaught</span>
+              <span i class="ms-3"></span>
            </a>
         </li>
-       
-        
      </ul>
   </div>
 </div>
 
+<!-- <script src="./scripts/app.js"></script> -->
+<!-- <script type="module" src="./scripts/chatgpt.js"></script> -->
 <script type="module" src="./scripts/app.js"></script>
     <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
   </body>
